@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 3317111947
+    locked: 0
+  - name: Objects
+    uniqueID: 1380216773
+    locked: 0
+  - name: Spells
+    uniqueID: 3147114505
+    locked: 0
+  - name: Entity
+    uniqueID: 1758412185
+    locked: 0
