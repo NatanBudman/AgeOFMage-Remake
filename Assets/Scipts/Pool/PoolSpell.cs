@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PoolSpell : MonoBehaviour
 {
-    private List<GameObject> PoolList = new List<GameObject>();
+    public List<GameObject> PoolList;
     public GameObject ObjectPooling;
 
     public int MaxInstance;
 
 
 
-    void Start()
+    void Awake()
     {
+        PoolList = new List<GameObject>();
         for (int i = 0; i < MaxInstance; i++) 
         {
             GameObject Instance = Instantiate(ObjectPooling,this.transform);
+            string name = $"{Instance.name}_{i} ";
+            Instance.name = name;
             Instance.gameObject.SetActive(false);
             Instance.GetComponent<Spell>().SpellPool = this;
 
@@ -25,19 +28,27 @@ public class PoolSpell : MonoBehaviour
 
     }
 
-    public GameObject GetObjectPool() 
+    public GameObject GetObjectPool()
     {
+        Debug.Log("hola");
         GameObject ObjectPool = null;
 
-        foreach (var gameObject in PoolList) 
+        int length = PoolList.Count;
+        for (int i = 0; i < length; i++)
         {
-            if (gameObject != null) 
+            if (PoolList[i] != null && PoolList[i].activeSelf == false)
             {
-                if (gameObject.activeInHierarchy == false) ObjectPool = gameObject;
+                ObjectPool = PoolList[i];
+                break;
             }
         }
 
-        if (ObjectPool == null) ObjectPool = Instantiate(ObjectPooling,this.transform);
+        if (ObjectPool == null)
+        {
+            ObjectPool = Instantiate(ObjectPooling, this.transform);
+            PoolList.Add(ObjectPool);
+        }
+        ObjectPool.SetActive(true);
 
         return ObjectPool;
     }

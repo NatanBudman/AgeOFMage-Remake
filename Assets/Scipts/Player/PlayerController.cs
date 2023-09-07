@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     // Spell
     int indexSpell = 0;
-    GameObject currSpell;
+    public Spell currSpell;
+    PoolSpell pool;
 
     public event System.Action<Vector2> OnMovement;
     void Start()
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
         Spells = GetComponent<PlayerSpell>();
         OnMovement += model.Move;
 
-        Spell(indexSpell);
+        Spell(0);
     }
 
     // Update is called once per frame
@@ -58,18 +59,30 @@ public class PlayerController : MonoBehaviour
     }
     public void Spell(int Spell) 
     {
-        currSpell = Spells.Spell[Spell];
+        currSpell = Spells.SpellSelected(Spell);
+        pool = Spells.PoolSelected(Spell);
     }
     void ChangeSpell(int spell) 
     {
-        indexSpell++;
-        if (indexSpell <= Spells.Spell.Length) return;
+        indexSpell = spell;
+        if (indexSpell > Spells.Spell.Length || indexSpell < 0  ) return;
         Spell(indexSpell);
     }
 
     void SpellController() 
     {
-        if(Input.GetKeyDown(Inputs.ChangeSpell))
-            ChangeSpell(1);
+        //int lenght = Inputs.ChangeSpell.Length;
+        //for (int i = 0; i < lenght; i++) 
+        //{
+        //    if(Input.GetKeyDown(Inputs.ChangeSpell[i]))
+        //       ChangeSpell(0);
+        //}
+
+        if (Input.GetKeyDown(Inputs.FireSpell)) 
+        {
+            GameObject MagicSpell = pool.GetObjectPool();
+            MagicSpell.transform.position = Spells.SpawnSpell.position;
+            MagicSpell.transform.rotation = Spells.SpawnSpell.rotation;
+        }
     }
 }

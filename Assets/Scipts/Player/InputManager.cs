@@ -6,13 +6,6 @@ public class InputManager : MonoBehaviour
 { 
 
     public KeyCode FireSpell;
-    public KeyCode ChangeSpell;
-
-    private void Start()
-    {
-    }
-  
-    public void Move() 
-    {
-    }
+    public KeyCode[] ChangeSpell;
+   
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface SpellInterface
 {
-    GameObject CallSpell();
     void DisableSpell(GameObject Spell);
     void EffectSpell();
 

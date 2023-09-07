@@ -711,67 +711,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &238022105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1924088432452349696, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-  m_PrefabInstance: {fileID: 1568091862}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &238022113
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238022105}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!95 &238022121
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238022105}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 230a1a889ab12d6418ff7e55b3058fdb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &238022122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238022105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 174241b16648c80479995c54826347a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Spell:
-  - {fileID: 7569105227460407183, guid: 69e6595a1eb0472408563ad3d5d253ec, type: 3}
 --- !u!1 &242212297
 GameObject:
   m_ObjectHideFlags: 0
@@ -7228,17 +7167,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238022122, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
+      propertyPath: Spell.Array.data[0].SpellPool
+      value: 
+      objectReference: {fileID: 1757165912}
     - target: {fileID: 1924088432452349696, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2692930359402692914, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2692930359402692914, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MouseRotationSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5270238519258407876, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: m_RootOrder
@@ -7283,30 +7218,6 @@ PrefabInstance:
     - target: {fileID: 5270238519258407876, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MoveBack
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MoveLeft
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: FireSpell
-      value: 323
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MoveRight
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MoveFoward
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293203344390779300, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: ChangeSpell
-      value: 324
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
@@ -8615,6 +8526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c933003552b364c9deefea6140d48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolList: []
   ObjectPooling: {fileID: 7569105227460407183, guid: 69e6595a1eb0472408563ad3d5d253ec, type: 3}
   MaxInstance: 15
 --- !u!4 &1757165913

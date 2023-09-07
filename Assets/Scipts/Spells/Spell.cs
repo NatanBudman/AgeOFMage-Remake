@@ -9,11 +9,7 @@ public class Spell : MonoBehaviour,SpellInterface
     public float Speed;
     public float Damage;
     public float Cost;
-
-    public virtual  GameObject CallSpell()
-    {
-        return SpellPool.GetObjectPool();
-    }
+    public Transform Spawn;
 
     public virtual void DisableSpell(GameObject Spell)
     {
