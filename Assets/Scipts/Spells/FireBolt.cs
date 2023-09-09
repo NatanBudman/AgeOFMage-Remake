@@ -13,8 +13,5 @@ public class FireBolt : Spell
     public override void Move()
     {
         base.Move();
-        Vector2 dir = -transform.up * Speed;
-        dir.Normalize();
-        rb.velocity = dir;
     }
 }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPool: {fileID: 0}
   rb: {fileID: 653585157308305432}
-  Speed: 6
+  Speed: 12
   Damage: 0
   Cost: 0
 --- !u!50 &653585157308305432

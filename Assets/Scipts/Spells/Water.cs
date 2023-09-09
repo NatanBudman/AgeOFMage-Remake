@@ -13,6 +13,5 @@ public class Water : Spell
     public override void Move()
     {
         base.Move();
-
     }
 }

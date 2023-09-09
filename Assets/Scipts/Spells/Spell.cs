@@ -9,7 +9,6 @@ public class Spell : MonoBehaviour,SpellInterface
     public float Speed;
     public float Damage;
     public float Cost;
-    public Transform Spawn;
 
     public virtual void DisableSpell(GameObject Spell)
     {
@@ -27,6 +26,8 @@ public class Spell : MonoBehaviour,SpellInterface
 
     public virtual void Move() 
     {
-
+        Vector2 dir = -transform.up * Speed;
+        dir.Normalize();
+        rb.velocity = dir;
     }
 }

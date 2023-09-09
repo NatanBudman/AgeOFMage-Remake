@@ -71,12 +71,12 @@ public class PlayerController : MonoBehaviour
 
     void SpellController() 
     {
-        //int lenght = Inputs.ChangeSpell.Length;
-        //for (int i = 0; i < lenght; i++) 
-        //{
-        //    if(Input.GetKeyDown(Inputs.ChangeSpell[i]))
-        //       ChangeSpell(0);
-        //}
+        int lenght = Inputs.ChangeSpell.Length;
+        for (int i = 0; i < lenght; i++) 
+        {
+           if(Input.GetKeyDown(Inputs.ChangeSpell[i]))
+               ChangeSpell(i);
+        }
 
         if (Input.GetKeyDown(Inputs.FireSpell)) 
         {

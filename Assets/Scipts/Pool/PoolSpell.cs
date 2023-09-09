@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolSpell : MonoBehaviour
 {
-    public List<GameObject> PoolList;
+    private List<GameObject> PoolList;
     public GameObject ObjectPooling;
 
     public int MaxInstance;
@@ -30,7 +30,6 @@ public class PoolSpell : MonoBehaviour
 
     public GameObject GetObjectPool()
     {
-        Debug.Log("hola");
         GameObject ObjectPool = null;
 
         int length = PoolList.Count;
