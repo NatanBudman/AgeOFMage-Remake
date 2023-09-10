@@ -110,8 +110,11 @@ MonoBehaviour:
   Damage: 0
   Range: 6
   CooldownAttack: 3
+  MaxImpulse: 2
+  Desacelerate: 0.816
   _currentAttack: 0
   animator: {fileID: 2862988863812267393}
+  isDeath: 0
   Bullet: {fileID: 1790917902707752347, guid: 0e4d00eddb50e744e8dc5eb6b3cee50d, type: 3}
   Pool: {fileID: 0}
   SpawnBullet: {fileID: 5337719264881668971}

@@ -8908,7 +8908,7 @@ MonoBehaviour:
     MaxEnemiesInRoom: 6
   - RoundNumber: Round 2
     current: 2
-    Enemy: 3
+    Enemy: 15
     Enemies:
     - {fileID: 1797287135900418176, guid: 2cb378bef004e364f81aba9d97f92d09, type: 3}
     MaxEnemiesInRoom: 7

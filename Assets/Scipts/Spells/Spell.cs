@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour, SpellInterface
 {
-    public PoolSpell SpellPool;
+    [HideInInspector]public PoolSpell SpellPool;
     public Rigidbody2D rb;
     public float Speed;
     public int Damage;
@@ -53,7 +53,7 @@ public class Spell : MonoBehaviour, SpellInterface
                     Debug.Log(health.name);
 
                     EffectSpell();
-                    health.Damage(Damage);
+                    health.DamageRecive(Damage);
                     SpellPool.ReturnPool(this.gameObject);
                 }
                 

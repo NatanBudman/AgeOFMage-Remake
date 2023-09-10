@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public int Damage;
     public float Range;
     public float CooldownAttack;
+    public float MaxImpulse;
+    [Range(0.1f,0.9f)]public float Desacelerate;
     [HideInInspector]public float _currentAttack;
 
     public Animator animator;
@@ -22,11 +24,17 @@ public class Enemy : MonoBehaviour
     {
         target = FindObjectOfType<PlayerController>().gameObject;
         health.OnDeath += Death;
+        health.OnDamage += DamageRecive;
         StartCall();
     }
     public virtual void StartCall() 
     {
 
+    }
+    public virtual void DamageRecive(int impulse) 
+    {
+        rb.AddForce(-transform.right * Mathf.Clamp(impulse,0,MaxImpulse), ForceMode2D.Impulse);
+        return;
     }
     private void Update()
     {
@@ -50,12 +58,12 @@ public class Enemy : MonoBehaviour
         Vector2 direccion = target.transform.position - transform.position;
 
         Rotate(direccion);
+
         if (Range > diffTargetDist()) 
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity *= Desacelerate;
             return;
         }
-
         direccion.Normalize();
 
         // Aplicamos una velocidad lineal al Rigidbody2D

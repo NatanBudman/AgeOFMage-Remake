@@ -241,6 +241,7 @@ MonoBehaviour:
   LayersIgnore: 0700000008000000
   radius: 2
   ZoneImpact: {fileID: 332240286024349976}
+  Impulse: 3
 --- !u!50 &653585157308305432
 Rigidbody2D:
   serializedVersion: 4

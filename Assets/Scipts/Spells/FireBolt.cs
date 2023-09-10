@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class FireBolt : Spell
 {
-    public Collider2D[] Colliders;
+    private Collider2D[] Colliders;
     public float radius = 1;
     public GameObject ZoneImpact;
+    public float Impulse;
     public override void StartCall()
     {
         base.StartCall();
         Colliders = new Collider2D[15];
-        ZoneImpact.transform.localScale = new Vector3(radius, radius , 0);
+        ZoneImpact.transform.localScale = new Vector3(radius * 2, radius * 2 , 0);
+        ZoneImpact.SetActive(false);
     }
     public override void EffectSpell()
     {
@@ -31,8 +33,9 @@ public class FireBolt : Spell
                 if (CheckCollisionLayers(collider, Layers)) 
                 {
                     HealthController heatlh = collider.GetComponent<HealthController>();
-                    if (heatlh != null) 
-                    heatlh.Damage(Damage);
+                    if (heatlh != null)
+                        heatlh.DamageRecive(Damage);
+
                 }
             }
         }

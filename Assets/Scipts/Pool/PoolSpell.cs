@@ -6,7 +6,7 @@ public class PoolSpell : MonoBehaviour
 {
     private List<GameObject> PoolList;
     public GameObject ObjectPooling;
-
+    private int index;
     public int MaxInstance;
 
 
@@ -32,23 +32,35 @@ public class PoolSpell : MonoBehaviour
     {
         GameObject ObjectPool = null;
 
-        int length = PoolList.Count;
-        for (int i = 0; i < length; i++)
+
+        if (index < PoolList.Count)
         {
-            if (PoolList[i] != null && PoolList[i].activeSelf == false)
+            if (PoolList[index] != null && PoolList[index].activeSelf == false)
             {
-                ObjectPool = PoolList[i];
-                break;
+                ObjectPool = PoolList[index];
+                index++;
             }
         }
-
+        else 
+        {
+            index = 0;
+        }
+     
+          
         if (ObjectPool == null)
         {
             ObjectPool = Instantiate(ObjectPooling, this.transform);
+            ObjectPool.GetComponent<Spell>().SpellPool = this;
             PoolList.Add(ObjectPool);
+            index = PoolList.Count - 1;
+            index = 0;
         }
-        ObjectPool.SetActive(true);
+            
+          
 
+        
+
+        ObjectPool.SetActive(true);
         return ObjectPool;
     }
 

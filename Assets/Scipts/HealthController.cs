@@ -10,14 +10,20 @@ public class HealthController : MonoBehaviour
 
     public delegate void Kill();
     public Kill OnDeath;
+
+    public event System.Action<int> OnDamage;
     // Start is called before the first frame update
     void Start()
     {
         _currentLife = MaxLife;
         OnDeath += Death;
+        OnDamage += Damage;
     }
-
-    public void Damage(int damage) 
+    public void DamageRecive(int damage) 
+    {
+        OnDamage(damage);
+    }
+    private void Damage(int damage) 
     {
         _currentLife -= damage;
         render.color = Color.red;
