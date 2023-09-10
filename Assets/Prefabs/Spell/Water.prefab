@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4313963277307052559}
   - component: {fileID: 8668540013562204283}
   - component: {fileID: 8685233626717877600}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPool: {fileID: 0}
   rb: {fileID: 8668540013562204283}
-  Speed: 12
-  Damage: 0
+  Speed: 48
+  Damage: 10
   Cost: 0
+  Layers: 06000000
+  LayersIgnore: 0700000008000000
 --- !u!50 &8668540013562204283
 Rigidbody2D:
   serializedVersion: 4
@@ -135,10 +137,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.14175582, y: -0.33076477}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -149,5 +151,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.19, y: 11.1}
+  m_Size: {x: 5.0164056, y: 10.438471}
   m_EdgeRadius: 0

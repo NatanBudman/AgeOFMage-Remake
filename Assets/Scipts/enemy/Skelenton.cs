@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Skelenton : Enemy
 {
-    public Animator animator;
     public GameObject Bullet;
     public PoolSpell Pool;
     public Transform SpawnBullet;
@@ -14,7 +13,6 @@ public class Skelenton : Enemy
     {
         base.StartCall();
         Pool = GameObject.FindGameObjectWithTag("PoolBone").GetComponent<PoolSpell>();
-        Debug.Log("entre");
     }
     public override void Animations()
     {

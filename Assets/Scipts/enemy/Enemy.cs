@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+   [HideInInspector] public Room room;
+    public HealthController health;
     public GameObject target;
     public Rigidbody2D rb;
     [Space]
@@ -13,9 +15,13 @@ public class Enemy : MonoBehaviour
     public float Range;
     public float CooldownAttack;
     [HideInInspector]public float _currentAttack;
+
+    public Animator animator;
+    public bool isDeath = false;
     private void Start()
     {
         target = FindObjectOfType<PlayerController>().gameObject;
+        health.OnDeath += Death;
         StartCall();
     }
     public virtual void StartCall() 
@@ -24,6 +30,9 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        if (isDeath) 
+            return;
+
         Move();
         Attack();
         Animations();
@@ -68,5 +77,16 @@ public class Enemy : MonoBehaviour
     public virtual void Attack() 
     {
 
+    }
+    public virtual void Death() 
+    {
+        room.MinionDeath();
+        animator.SetTrigger("Death");
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+        isDeath = true;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity =0;
+        health.OnDeath -= Death;
     }
 }

@@ -6,13 +6,18 @@ public class PlayerModel : MonoBehaviour
 {
     public float Speed;
     public float MouseRotationSpeed;
-    Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
     public void Move(Vector2 dir) 
     {
+        if (dir == Vector2.zero) 
+        {
+            _rb.velocity = Vector2.zero;
+            return;
+        }
         Vector2 velocidadMovimiento = dir;
         velocidadMovimiento.Normalize();
         _rb.velocity = velocidadMovimiento * Speed;

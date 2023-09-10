@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     // Spell
     int indexSpell = 0;
-    public Spell currSpell;
+    Spell currSpell;
     PoolSpell pool;
 
     public event System.Action<Vector2> OnMovement;
@@ -43,9 +43,12 @@ public class PlayerController : MonoBehaviour
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 
-        if (h == 0 && v == 0) 
+        if (h == 0 && v == 0)
         {
-            OnMovement(Vector2.zero);
+
+            model._rb.velocity = Vector2.zero;
+            model._rb.angularVelocity = 0;
+            // Aplicar la fuerza
             return;
         }
 
