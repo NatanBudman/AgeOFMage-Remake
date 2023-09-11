@@ -85,7 +85,10 @@ public class Room : MonoBehaviour
     {
         CurrentEnemyInScene--;
     }
-
+    public void MinionRevive() 
+    {
+        CurrentEnemyInScene++;
+    }
     Vector2 RandomArea() 
     {
         float randomx = Random.Range(0, roomParameters.RangeAreaSpawn);

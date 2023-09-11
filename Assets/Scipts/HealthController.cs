@@ -10,6 +10,8 @@ public class HealthController : MonoBehaviour
 
     public delegate void Kill();
     public Kill OnDeath;
+    public delegate void Reavive();
+    public Reavive OnReavive;
 
     public event System.Action<int> OnDamage;
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class HealthController : MonoBehaviour
         _currentLife = MaxLife;
         OnDeath += Death;
         OnDamage += Damage;
+        OnReavive += Revive;
     }
     public void DamageRecive(int damage) 
     {
@@ -49,4 +52,8 @@ public class HealthController : MonoBehaviour
     }
 
     void Death() { }
+    void Revive() 
+    {
+        _currentLife = MaxLife;
+    }
 }
