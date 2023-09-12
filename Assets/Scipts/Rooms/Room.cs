@@ -22,7 +22,7 @@ public class Room : MonoBehaviour
     private void Start()
     {
         currentWave = Waves[0];
-        CurrentTotalEnemy = currentWave.Enemy;
+        CurrentTotalEnemy = currentWave.EnemyCount[0];
         
     }
 
@@ -64,28 +64,41 @@ public class Room : MonoBehaviour
         if (indexWave < Waves.Length - 1) indexWave++;
         else return;
         currentWave = Waves[indexWave];
-        CurrentTotalEnemy = currentWave.Enemy;
+        for (int i = 0; i < currentWave.EnemyCount.Length; i++)
+        {
+            CurrentTotalEnemy += currentWave.EnemyCount[i];
+        }
 
     }
     void InvokeSoldaries() 
     {
-        int random = Random.Range(0, currentWave.Enemies.Length - 1);
         int randomInvocation = Random.Range(1, 3);
 
-        for (int i = 0; i < randomInvocation; i++)
+        for (int i = 0; i < currentWave.EnemyCount.Length; i++)
         {
             if (CurrentTotalEnemy <= 0) return;
-            GameObject Instanciate = Instantiate(currentWave.Enemies[random], RandomArea(), Quaternion.identity);
-            Instanciate.GetComponent<Enemy>().room = this;
-            CurrentEnemyInScene++;
-            CurrentTotalEnemy--;
+
+            for (int j = 0; j < randomInvocation; j++) 
+            {
+                if (currentWave.EnemyCount[j] > 0) 
+                {
+                    GameObject Instanciate = Instantiate(currentWave.Enemies[i], RandomArea(), Quaternion.identity);
+                    Instanciate.GetComponent<Enemy>().room = this;
+                    CurrentEnemyInScene++;
+                    CurrentTotalEnemy--;
+                }
+
+            }
         }
     }
     public void MinionDeath()
     {
         CurrentEnemyInScene--;
     }
-
+    public void MinionRevive() 
+    {
+        CurrentEnemyInScene++;
+    }
     Vector2 RandomArea() 
     {
         float randomx = Random.Range(0, roomParameters.RangeAreaSpawn);
@@ -117,10 +130,9 @@ public struct Wave
 {
     public string RoundNumber;
     public int current;
-    
-    public int Enemy;
 
     public GameObject[] Enemies;
+    public int[] EnemyCount;
 
     public int MaxEnemiesInRoom;
 

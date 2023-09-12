@@ -15,7 +15,7 @@ TagManager:
   - Enemy
   - Spell
   - Player
-  - 
+  - Death
   - 
   - 
   - 
@@ -48,9 +48,9 @@ TagManager:
   - name: Objects
     uniqueID: 1380216773
     locked: 0
-  - name: Spells
-    uniqueID: 3147114505
-    locked: 0
   - name: Entity
     uniqueID: 1758412185
+    locked: 0
+  - name: Spells
+    uniqueID: 3147114505
     locked: 0

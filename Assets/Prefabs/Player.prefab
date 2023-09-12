@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1758412185
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cd0b6d768d3dbf740ba67f9ea0f1d4e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eada9a6180b878544a19a4685d6d71a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currSpell: {fileID: 0}
 --- !u!114 &2692930359402692914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   MouseRotationSpeed: 4
+  _rb: {fileID: 0}
 --- !u!114 &6815624606993790973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d5a51d7e2be85488491560391248b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Broom: 324
   FireSpell: 323
   ChangeSpell: 31000000
 --- !u!50 &238022113
@@ -204,7 +205,7 @@ Animator:
   m_GameObject: {fileID: 1924088432452349696}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 230a1a889ab12d6418ff7e55b3058fdb, type: 2}
+  m_Controller: {fileID: 9100000, guid: a19cdf9cb17dd7d4f82ddb1f25325584, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

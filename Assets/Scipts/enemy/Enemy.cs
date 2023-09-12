@@ -22,24 +22,27 @@ public class Enemy : MonoBehaviour
     public bool isDeath = false;
     private void Start()
     {
-        target = FindObjectOfType<PlayerController>().gameObject;
         health.OnDeath += Death;
         health.OnDamage += DamageRecive;
+        health.OnReavive += Revive;
         StartCall();
     }
     public virtual void StartCall() 
     {
-
+        target = FindObjectOfType<PlayerController>().gameObject;
     }
     public virtual void DamageRecive(int impulse) 
     {
-        rb.AddForce(-transform.right * Mathf.Clamp(impulse,0,MaxImpulse), ForceMode2D.Impulse);
+        rb.AddForce(transform.up * Mathf.Clamp(impulse,0,MaxImpulse), ForceMode2D.Force);
         return;
     }
     private void Update()
     {
         if (isDeath) 
+        {
+            rb.velocity = Vector2.zero;
             return;
+        }
 
         Move();
         Attack();
@@ -55,19 +58,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move() 
     {
-        Vector2 direccion = target.transform.position - transform.position;
-
-        Rotate(direccion);
-
-        if (Range > diffTargetDist()) 
-        {
-            rb.velocity *= Desacelerate;
-            return;
-        }
-        direccion.Normalize();
-
-        // Aplicamos una velocidad lineal al Rigidbody2D
-        rb.velocity = direccion * Speed;
+       
     }
     public virtual void Animations() 
     {
@@ -86,15 +77,37 @@ public class Enemy : MonoBehaviour
     {
 
     }
+    public void Revive() 
+    {
+        if (room != null) room.MinionRevive();
+        animator.SetTrigger("Revive");
+        this.gameObject.layer = 6;
+        isDeath = false;
+
+    }
     public virtual void Death() 
     {
-        room.MinionDeath();
+      if(room != null)  room.MinionDeath();
         animator.SetTrigger("Death");
-        Collider2D collider = GetComponent<Collider2D>();
-        collider.enabled = false;
+        this.gameObject.layer = 9;
         isDeath = true;
-        rb.velocity = Vector3.zero;
+        rb.velocity = Vector2.zero;
         rb.angularVelocity =0;
-        health.OnDeath -= Death;
+    }
+
+    public bool CheckCollisionLayers(Collider2D collider, int[] allowedLayers)
+    {
+        int colliderLayer = collider.gameObject.layer;
+
+
+        for (int i = 0; i < allowedLayers.Length; i++)
+        {
+            if (colliderLayer == allowedLayers[i])
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

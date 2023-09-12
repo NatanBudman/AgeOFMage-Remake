@@ -110,7 +110,7 @@ MonoBehaviour:
   Damage: 0
   Range: 6
   CooldownAttack: 3
-  MaxImpulse: 2
+  MaxImpulse: 24
   Desacelerate: 0.816
   _currentAttack: 0
   animator: {fileID: 2862988863812267393}

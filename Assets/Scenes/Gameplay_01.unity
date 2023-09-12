@@ -8209,6 +8209,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2463320678530312433, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2692930359402692914, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: _rb
       value: 
@@ -8898,19 +8902,21 @@ MonoBehaviour:
     - {fileID: 165488413}
     RangeAreaSpawn: 3
     CooldownSpawnEnemy: 4
-    TimeStartRoom: 3
+    TimeStartRoom: 1
   Waves:
   - RoundNumber: Round 1
     current: 1
-    Enemy: 6
     Enemies:
     - {fileID: 1797287135900418176, guid: 2cb378bef004e364f81aba9d97f92d09, type: 3}
+    - {fileID: 4598433643308381432, guid: 1604d1567bd91234188a60a30d8536bc, type: 3}
+    EnemyCount: 0800000001000000
     MaxEnemiesInRoom: 6
   - RoundNumber: Round 2
     current: 2
-    Enemy: 15
     Enemies:
     - {fileID: 1797287135900418176, guid: 2cb378bef004e364f81aba9d97f92d09, type: 3}
+    - {fileID: 4598433643308381432, guid: 1604d1567bd91234188a60a30d8536bc, type: 3}
+    EnemyCount: 0c00000002000000
     MaxEnemiesInRoom: 7
   AreaSpawn: {fileID: 16554024}
 --- !u!4 &1657233827

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     PlayerModel model;
     InputManager Inputs;
     PlayerSpell Spells;
+    Animator animator;
 
 
     // Spell
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public event System.Action<Vector2> OnMovement;
     void Start()
     {
+        animator = GetComponent<Animator>();
         model = GetComponent<PlayerModel>();
         Inputs = GetComponent<InputManager>();
         Spells = GetComponent<PlayerSpell>();
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 Direction = new Vector3(h, v, 0).normalized;
-
+        animator.SetFloat("vel",model._rb.velocity.magnitude);
         OnMovement(Direction);
     }
     public void Rotation() 
@@ -86,6 +88,10 @@ public class PlayerController : MonoBehaviour
             GameObject MagicSpell = pool.GetObjectPool();
             MagicSpell.transform.position = Spells.SpawnSpell.position;
             MagicSpell.transform.rotation = Spells.SpawnSpell.rotation;
+        }
+        if (Input.GetKeyDown(Inputs.Broom)) 
+        {
+            animator.SetTrigger("Broom");
         }
     }
 }
