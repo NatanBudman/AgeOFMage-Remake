@@ -14,5 +14,6 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         CurrentLife.fillAmount = PlayerHealth._currentLife /PlayerHealth.MaxLife;
+        CurrentMana.fillAmount = playerController.CurrentMana / playerController.MaxMana;
     }
 }
