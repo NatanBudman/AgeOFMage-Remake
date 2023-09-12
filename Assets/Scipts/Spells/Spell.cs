@@ -50,7 +50,6 @@ public class Spell : MonoBehaviour, SpellInterface
             {
                 if (CheckCollisionLayers(collision, Layers))
                 {
-                    Debug.Log(health.name);
 
                     EffectSpell();
                     health.DamageRecive(Damage);
