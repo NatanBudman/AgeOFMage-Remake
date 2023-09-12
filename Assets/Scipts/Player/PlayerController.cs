@@ -16,10 +16,15 @@ public class PlayerController : MonoBehaviour
     int indexSpell = 0;
     Spell currSpell;
     PoolSpell pool;
-
+    [Header("Mana")]
+    public float MaxMana;
+    public float CurrentMana;
+    public float ManaRegenerate;
+    public float ManaRegeneratePerSecond;
     public event System.Action<Vector2> OnMovement;
     void Start()
     {
+        CurrentMana = MaxMana;
         animator = GetComponent<Animator>();
         model = GetComponent<PlayerModel>();
         Inputs = GetComponent<InputManager>();
@@ -35,6 +40,8 @@ public class PlayerController : MonoBehaviour
         Move();
         Rotation();
         SpellController();
+        Broom();
+        Mana();
     }
 
     public void Move()
@@ -83,15 +90,40 @@ public class PlayerController : MonoBehaviour
                ChangeSpell(i);
         }
 
-        if (Input.GetKeyDown(Inputs.FireSpell)) 
+        if (Input.GetKeyDown(Inputs.FireSpell) && CurrentMana >= currSpell.Cost) 
         {
             GameObject MagicSpell = pool.GetObjectPool();
             MagicSpell.transform.position = Spells.SpawnSpell.position;
             MagicSpell.transform.rotation = Spells.SpawnSpell.rotation;
+            CurrentMana -= currSpell.Cost;
+            return;
         }
-        if (Input.GetKeyDown(Inputs.Broom)) 
+      
+    }
+
+    void Broom() 
+    {
+        if (Input.GetKeyDown(Inputs.Broom))
         {
             animator.SetTrigger("Broom");
         }
+    }
+
+    void Mana() 
+    {
+        if (CurrentMana < MaxMana)
+        {
+            StartCoroutine(ManaRegenarate());
+        }
+        else 
+        {
+            StopCoroutine(ManaRegenarate());
+        }
+    }
+    IEnumerator ManaRegenarate() 
+    {
+        CurrentMana += ManaRegenerate * Time.deltaTime;
+        yield return new WaitForSeconds(ManaRegeneratePerSecond);
+        StopCoroutine(ManaRegenarate());
     }
 }

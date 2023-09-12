@@ -8887,6 +8887,18 @@ PrefabInstance:
       propertyPath: Spell.Array.data[1].SpellPool
       value: 
       objectReference: {fileID: 278500387}
+    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
+      propertyPath: MaxMana
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
+      propertyPath: ManaRegenerate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
+      propertyPath: ManaRegeneratePerSecond
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1924088432452349696, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: m_Name
       value: Player
