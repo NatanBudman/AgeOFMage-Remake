@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1758412185
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -496495484, guid: 37559f5fceba54d48bcb3ef1c8493540, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,6 +115,11 @@ MonoBehaviour:
   _currentAttack: 0
   animator: {fileID: 2862988863812267393}
   isDeath: 0
+  ObstalcleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  radius: 10
+  Multiplier: 2
   Bullet: {fileID: 1790917902707752347, guid: 0e4d00eddb50e744e8dc5eb6b3cee50d, type: 3}
   Pool: {fileID: 0}
   SpawnBullet: {fileID: 5337719264881668971}

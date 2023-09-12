@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
 
     public Animator animator;
     public bool isDeath = false;
+
+
+
     private void Start()
     {
         health.OnDeath += Death;
