@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     public float MaxLife;
-   [SerializeField]private float _currentLife;
+    public float _currentLife;
     public SpriteRenderer render;
 
     public delegate void Kill();

@@ -9,6 +9,7 @@ public class Skelenton : Enemy
     public Transform SpawnBullet;
 
     public bool isCanShoot;
+
     public override void StartCall()
     {
         base.StartCall();
@@ -40,7 +41,6 @@ public class Skelenton : Enemy
     {
         base.Move();
         Vector2 direccion = target.transform.position - transform.position;
-
         Rotate(direccion);
 
         if (Range > diffTargetDist())

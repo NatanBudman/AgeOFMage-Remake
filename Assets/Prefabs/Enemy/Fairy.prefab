@@ -176,11 +176,16 @@ MonoBehaviour:
   _currentAttack: 0
   animator: {fileID: 741839948079940567}
   isDeath: 0
+  ObstalcleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  radius: 0
+  Multiplier: 0
   Colliders: []
   AllyLayer:
     serializedVersion: 2
     m_Bits: 512
-  radius: 100
+  radius: 10
   RangeRevive: 0.5
 --- !u!95 &741839948079940567
 Animator:
