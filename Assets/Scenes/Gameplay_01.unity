@@ -2661,6 +2661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLayer: 09000000
+  Enemy: 06000000
+  damage: 5
 --- !u!61 &508691742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2674,7 +2676,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0075693727, y: -0.38604057}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2685,7 +2687,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9501514, y: 1.811105}
+  m_Size: {x: 3.0250068, y: 2.5831835}
   m_EdgeRadius: 0
 --- !u!1 &509843853
 GameObject:
@@ -6378,7 +6380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5712706464883615207, guid: 47ebfe5b27aa140438201e4fc538273a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.2104907
+      value: 6.84
       objectReference: {fileID: 0}
     - target: {fileID: 5712706464883615207, guid: 47ebfe5b27aa140438201e4fc538273a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7468,7 +7470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5712706464883615207, guid: 47ebfe5b27aa140438201e4fc538273a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.287287
+      value: 6.81
       objectReference: {fileID: 0}
     - target: {fileID: 5712706464883615207, guid: 47ebfe5b27aa140438201e4fc538273a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8887,18 +8889,6 @@ PrefabInstance:
       propertyPath: Spell.Array.data[1].SpellPool
       value: 
       objectReference: {fileID: 278500387}
-    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: MaxMana
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: ManaRegenerate
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152074269634910482, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
-      propertyPath: ManaRegeneratePerSecond
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1924088432452349696, guid: e1e98f2399071a047a530e72747fa90a, type: 3}
       propertyPath: m_Name
       value: Player

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellPool: {fileID: 0}
   rb: {fileID: 8668540013562204283}
-  Speed: 48
+  Speed: 100
   Damage: 10
   Cost: 10
   Layers: 06000000

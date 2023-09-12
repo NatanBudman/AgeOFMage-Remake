@@ -131,6 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eada9a6180b878544a19a4685d6d71a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMana: 250
+  CurrentMana: 0
+  ManaRegenerate: 25
+  ManaRegeneratePerSecond: 1
 --- !u!114 &2692930359402692914
 MonoBehaviour:
   m_ObjectHideFlags: 0
