@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1758412185
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: da6815458632f754ca3104c1faacfceb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -176,9 +176,12 @@ MonoBehaviour:
   _currentAttack: 0
   animator: {fileID: 741839948079940567}
   isDeath: 0
-  AllyLayer: 06000000
-  radius: 50
-  RangeRevive: 1.5
+  Colliders: []
+  AllyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  radius: 100
+  RangeRevive: 0.5
 --- !u!95 &741839948079940567
 Animator:
   serializedVersion: 5

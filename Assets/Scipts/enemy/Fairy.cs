@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fairy : Enemy
 {
-    private Collider2D[] Colliders;
-    public int[] AllyLayer;
+    public Collider2D[] Colliders;
+    public LayerMask AllyLayer;
     public float radius = 10;
     public float RangeRevive = 1.5f;
     public override void StartCall()
@@ -17,7 +17,7 @@ public class Fairy : Enemy
     {
         base.Move();
 
-        int count = Physics2D.OverlapCircleNonAlloc(transform.position, radius, Colliders);
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, radius, Colliders,AllyLayer);
 
         if (count < 0) return;
 
@@ -28,9 +28,9 @@ public class Fairy : Enemy
         {
             Collider2D collider = Colliders[i];
             Enemy ally = collider.GetComponent<Enemy>();
-            if (collider != null && collider != this)
+            if (collider != null)
             {
-                if (CheckCollisionLayers(collider, AllyLayer) && ally.isDeath)
+                if (ally.isDeath)
                 {
                     float distance = Vector2.Distance(transform.position, collider.transform.position);
                     if (distance < nearestDistance)
@@ -41,21 +41,28 @@ public class Fairy : Enemy
                 }
             }
         }
-        if (nearestCollider != null )
+        if (nearestCollider != null)
         {
             Vector2 dir = nearestCollider.transform.position - transform.position;
             Movement(dir);
 
             float diffDistanmce = Vector2.Distance(transform.position, nearestCollider.transform.position);
-            if (diffDistanmce < RangeRevive) 
+            if (diffDistanmce < RangeRevive)
             {
                 HealthController health = nearestCollider.GetComponent<HealthController>();
                 if (health != null)
                     health.OnReavive();
-
+                animator.SetTrigger("ReviveAlly");
                 Debug.Log(nearestCollider.name);
             }
         }
+        else 
+        {
+            
+            Vector2 direccion = target.transform.position - transform.position;
+            Movement(direccion);
+        }
+
     }
     private void Movement(Vector2 direccion) 
     {

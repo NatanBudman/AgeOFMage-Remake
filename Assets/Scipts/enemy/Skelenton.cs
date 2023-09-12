@@ -36,7 +36,21 @@ public class Skelenton : Enemy
             }
         }
     }
+    public override void Move()
+    {
+        base.Move();
+        Vector2 direccion = target.transform.position - transform.position;
 
+        Rotate(direccion);
+
+        if (Range > diffTargetDist())
+            rb.velocity *= Desacelerate;
+
+        direccion.Normalize();
+
+        if (Range < diffTargetDist())
+            rb.velocity = direccion * Speed;
+    }
     public void Shoot() 
     {
         if (isCanShoot) 

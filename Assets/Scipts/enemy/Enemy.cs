@@ -58,17 +58,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move() 
     {
-        Vector2 direccion = target.transform.position - transform.position;
-
-        Rotate(direccion);
-
-        if (Range > diffTargetDist()) 
-            rb.velocity *=  Desacelerate;
-
-        direccion.Normalize();
-
-        if (Range < diffTargetDist())
-            rb.velocity = direccion * Speed;
+       
     }
     public virtual void Animations() 
     {
