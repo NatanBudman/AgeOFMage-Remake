@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 3c8a58fcaf512a047951c7ee2ce0166e
+  - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: e9831dad3a758f84c952ca96e0a6b414
   m_configObjects: {}
