@@ -11,7 +11,7 @@ public class Potion : MonoBehaviour
         
     }
 
-    public virtual void Effect() 
+    public virtual void Effect (GameObject o) 
     {
 
     }
@@ -22,7 +22,7 @@ public class Potion : MonoBehaviour
         {
             if (CheckCollisionLayers(collision, PlayerLayer)) 
             {
-                Effect();
+                Effect(collision.gameObject);
                 Destroy(this.gameObject);
             }
         }

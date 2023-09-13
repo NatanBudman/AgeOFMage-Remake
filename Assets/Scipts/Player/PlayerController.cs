@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     InputManager Inputs;
     PlayerSpell Spells;
     Animator animator;
-
+    HealthController health;
 
     // Spell
     int indexSpell = 0;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         CurrentMana = MaxMana;
         animator = GetComponent<Animator>();
+        health = GetComponent<HealthController>();
         model = GetComponent<PlayerModel>();
         Inputs = GetComponent<InputManager>();
         Spells = GetComponent<PlayerSpell>();
@@ -42,6 +44,9 @@ public class PlayerController : MonoBehaviour
         SpellController();
         Broom();
         Mana();
+
+        if (health._currentLife <= 0) SceneManager.LoadScene("Scenes/Lose");
+        if (Input.GetKeyDown(Inputs.exit)) SceneManager.LoadScene("Scenes/MainMenu");
     }
 
     public void Move()

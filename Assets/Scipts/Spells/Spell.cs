@@ -37,9 +37,8 @@ public class Spell : MonoBehaviour, SpellInterface
 
     public virtual void Move()
     {
-        Vector2 dir = -transform.up * Speed;
-        dir.Normalize();
-        rb.velocity = dir;
+        Vector2 dir = -transform.up;
+        rb.velocity = dir * Speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

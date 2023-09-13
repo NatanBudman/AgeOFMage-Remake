@@ -148,7 +148,7 @@ MonoBehaviour:
   Damage: 5
   Cost: 0
   Layers: 08000000
-  LayersIgnore: 060000000900000007000000
+  LayersIgnore: 0600000009000000070000000a000000
 --- !u!61 &301141661657354053
 BoxCollider2D:
   m_ObjectHideFlags: 0

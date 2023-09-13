@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   [HideInInspector] public Room room;
+    public Room room;
     public HealthController health;
     public GameObject target;
     public Rigidbody2D rb;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public bool isDeath = false;
 
-
+    public GameObject[] items;
 
     private void Start()
     {
@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
         Move();
         Attack();
         Animations();
+        BarLife();
     }
 
     public float diffTargetDist() 
@@ -88,6 +89,10 @@ public class Enemy : MonoBehaviour
         isDeath = false;
 
     }
+    public virtual void BarLife() 
+    {
+
+    }
     public virtual void Death() 
     {
       if(room != null)  room.MinionDeath();
@@ -96,8 +101,29 @@ public class Enemy : MonoBehaviour
         isDeath = true;
         rb.velocity = Vector2.zero;
         rb.angularVelocity =0;
-    }
 
+
+        int randoChanceToSPpawn = Random.Range(0, 1);
+
+        if (randoChanceToSPpawn == 1) 
+        {
+            int random = Random.Range(0, items.Length);
+            GameObject instancia = Instantiate(items[random], transform.position, Quaternion.identity);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null) 
+        {
+            if (collision.gameObject.layer == 8) 
+            {
+                HealthController health = collision.GetComponent<HealthController>();
+
+                if (health != null)
+                    health.DamageRecive(Damage);
+            }
+        }
+    }
     public bool CheckCollisionLayers(Collider2D collider, int[] allowedLayers)
     {
         int colliderLayer = collider.gameObject.layer;

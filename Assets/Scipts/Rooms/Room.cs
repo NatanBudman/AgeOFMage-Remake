@@ -19,6 +19,7 @@ public class Room : MonoBehaviour
     private float currTimeSpawn;
     private float CurrentTotalEnemy;
     private float CurrentEnemyInScene;
+
     private void Start()
     {
         currentWave = Waves[0];
@@ -34,7 +35,7 @@ public class Room : MonoBehaviour
             currTimeToStart += Time.deltaTime;
             return;
         }
-
+        if (currentWave.BossBar != null) currentWave.BossBar.SetActive(true);
         SpawnMinions();
 
         if (CurrentTotalEnemy <= 0 && CurrentEnemyInScene <= 0)
@@ -68,6 +69,7 @@ public class Room : MonoBehaviour
         {
             CurrentTotalEnemy += currentWave.EnemyCount[i];
         }
+
 
     }
     void InvokeSoldaries() 
@@ -135,5 +137,7 @@ public struct Wave
     public int[] EnemyCount;
 
     public int MaxEnemiesInRoom;
+
+    public GameObject BossBar;
 
 }

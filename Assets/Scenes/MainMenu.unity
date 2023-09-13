@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 4471388}
   - component: {fileID: 4471390}
   - component: {fileID: 4471389}
+  - component: {fileID: 4471391}
   m_Layer: 5
   m_Name: Broom
   m_TagString: Untagged
@@ -199,6 +200,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4471387}
   m_CullTransparentMesh: 1
+--- !u!95 &4471391
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4471387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c61649658840c8479c8f5656b2c4c80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &26518603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1879021230}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: EnablePanel
+        m_MethodName: DisablePanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1482271672}

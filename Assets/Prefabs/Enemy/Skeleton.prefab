@@ -115,11 +115,9 @@ MonoBehaviour:
   _currentAttack: 0
   animator: {fileID: 2862988863812267393}
   isDeath: 0
-  ObstalcleLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  radius: 10
-  Multiplier: 2
+  items:
+  - {fileID: 6845301149140589355, guid: e2720e2a34414b942899abf8be3f08a7, type: 3}
+  - {fileID: 6984481340954493003, guid: 741ee7df753914546bb68f97b84f41b1, type: 3}
   Bullet: {fileID: 1790917902707752347, guid: 0e4d00eddb50e744e8dc5eb6b3cee50d, type: 3}
   Pool: {fileID: 0}
   SpawnBullet: {fileID: 5337719264881668971}

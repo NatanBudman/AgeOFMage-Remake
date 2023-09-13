@@ -176,11 +176,9 @@ MonoBehaviour:
   _currentAttack: 0
   animator: {fileID: 741839948079940567}
   isDeath: 0
-  ObstalcleLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  radius: 0
-  Multiplier: 0
+  items:
+  - {fileID: 6845301149140589355, guid: e2720e2a34414b942899abf8be3f08a7, type: 3}
+  - {fileID: 6984481340954493003, guid: 741ee7df753914546bb68f97b84f41b1, type: 3}
   Colliders: []
   AllyLayer:
     serializedVersion: 2

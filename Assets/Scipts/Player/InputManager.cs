@@ -7,5 +7,6 @@ public class InputManager : MonoBehaviour
     public KeyCode Broom;
     public KeyCode FireSpell;
     public KeyCode[] ChangeSpell;
+    public KeyCode exit;
    
 }

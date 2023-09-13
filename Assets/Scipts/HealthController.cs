@@ -50,7 +50,10 @@ public class HealthController : MonoBehaviour
         StopCoroutine(DamageRecive());
 
     }
-
+    public void AddLife(float addLife) 
+    {
+        _currentLife += addLife;
+    }
     void Death() { }
     void Revive() 
     {
