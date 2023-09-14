@@ -8,15 +8,22 @@ public class Broom : MonoBehaviour
     public int[] Enemy;
     public int damage;
 
+    public GameObject[] Loot;
+    [Range(0,100)]public int PorcentageLoot;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null) 
         {
             
-            Debug.Log(collision.gameObject.name);
             if (CheckCollisionLayers(collision, EnemyLayer)) 
             {
+
+               GameObject item  = RulleteLoot(PorcentageLoot, Loot);
+
+                if (item != null) 
+                    Instantiate(item, collision.transform.position,Quaternion.identity);
+
                 Destroy(collision.gameObject);
             }
             if (CheckCollisionLayers(collision, Enemy))
@@ -30,6 +37,18 @@ public class Broom : MonoBehaviour
         }
     }
 
+    private GameObject RulleteLoot(int porcentage , GameObject[] list) 
+    {
+        int random = Random.Range(0, 100);
+
+        if (random > porcentage) return null;
+
+
+        int randomItem = Random.Range(0, Loot.Length);
+
+        return list[randomItem];
+
+    }
     public bool CheckCollisionLayers(Collider2D collider, int[] allowedLayers)
     {
         int colliderLayer = collider.gameObject.layer;

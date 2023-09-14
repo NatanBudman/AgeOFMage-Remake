@@ -2663,6 +2663,10 @@ MonoBehaviour:
   EnemyLayer: 09000000
   Enemy: 06000000
   damage: 5
+  Loot:
+  - {fileID: 6984481340954493003, guid: 741ee7df753914546bb68f97b84f41b1, type: 3}
+  - {fileID: 6845301149140589355, guid: e2720e2a34414b942899abf8be3f08a7, type: 3}
+  PorcentageLoot: 25
 --- !u!61 &508691742
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public bool isDeath = false;
 
-    public GameObject[] items;
 
     private void Start()
     {
@@ -101,15 +100,6 @@ public class Enemy : MonoBehaviour
         isDeath = true;
         rb.velocity = Vector2.zero;
         rb.angularVelocity =0;
-
-
-        int randoChanceToSPpawn = Random.Range(0, 1);
-
-        if (randoChanceToSPpawn == 1) 
-        {
-            int random = Random.Range(0, items.Length);
-            GameObject instancia = Instantiate(items[random], transform.position, Quaternion.identity);
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
